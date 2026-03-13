@@ -191,15 +191,20 @@ const skills = [
 const skillsContainer = document.getElementById('skills-container');
 
 if (skillsContainer) {
+
     skills.forEach(skill => {
+
         const skillCard = `
-        <div class="glass p-6 rounded-xl text-center skill-card">
+        <div class="glass skill-box p-6 rounded-xl text-center skill-card bg-gray-800">
             <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
             <p class="font-semibold">${skill.name}</p>
         </div>
         `;
+
         skillsContainer.innerHTML += skillCard;
+
     });
+
 }
 
 
@@ -226,7 +231,7 @@ toggleBtn.addEventListener("click", () => {
     body.classList.toggle("bg-white");
     body.classList.toggle("text-black");
 
-    // Navbar
+    // Navbar Theme
     if(navbar){
         navbar.classList.toggle("bg-gray-900");
         navbar.classList.toggle("bg-white");
@@ -246,24 +251,42 @@ toggleBtn.addEventListener("click", () => {
         projectsSection.classList.toggle("bg-gray-100");
     }
 
-    // Text Colors
+    // About Text
     if(aboutText){
         aboutText.classList.toggle("text-gray-300");
         aboutText.classList.toggle("text-black");
     }
 
+    // Contact Text
     if(contactText){
         contactText.classList.toggle("text-gray-400");
         contactText.classList.toggle("text-black");
     }
 
+    // =============================
+    // Skill Box Theme Change
+    // =============================
+    const skillBoxes = document.querySelectorAll(".skill-box");
+
+    skillBoxes.forEach(box => {
+
+        box.classList.toggle("bg-gray-800"); // dark mode
+        box.classList.toggle("bg-gray-200"); // light mode
+        box.classList.toggle("text-black");
+
+    });
+
     // Icon Change
     if (body.classList.contains("bg-white")) {
+
         icon.classList.remove("fa-moon");
         icon.classList.add("fa-sun");
+
     } else {
+
         icon.classList.remove("fa-sun");
         icon.classList.add("fa-moon");
+
     }
 
 });
@@ -281,8 +304,10 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
 
         if(entry.isIntersecting){
+
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0px)";
+
         }
 
     });
@@ -308,16 +333,20 @@ function printResume(){
     const resumeWindow = window.open("resume tm.pdf");
 
     if(resumeWindow){
+
         resumeWindow.onload = function(){
+
             resumeWindow.print();
+
         };
+
     }
 
 }
 
-</script>
-</body>
+</script></body>
 </html>
+
 
 
 
