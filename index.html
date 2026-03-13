@@ -10,43 +10,77 @@
         html {
   scroll-behavior: smooth;
 }
-        .justify-text {
+    .justify-text {
     text-align: justify;
   }
         .skill-card:hover { transform: translateY(-10px); transition: 0.3s; }
         .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .project-card:hover{
+                        transform: translateY(-10px);
+                        transition: 0.3s;
+                        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body id="body" class="bg-gray-900 text-white font-sans">
 
-    <nav class="p-5 flex justify-between items-center sticky top-0 bg-gray-900 z-50 border-b border-gray-800">
-       <a href="#home" id="logoLink">
-    <img src="logo.png" alt="SV Logo" class="h-10 w-auto cursor-pointer">
+   <nav id="navbar" class="p-5 flex justify-between items-center sticky top-0 bg-gray-900 z-50 border-b border-gray-800">
+        <a href="#home">
+    <img src="logo.png" class="h-10">
 </a>
-        <ul class="flex space-x-6">
-            <li><a href="#about" class="hover:text-blue-400"><b>About</b></a></li>
-            <li><a href="#skills" class="hover:text-blue-400"><b>Skills</b></a></li>
-            <li><a href="#projects" class="hover:text-blue-400"><b>Projects</b></a></li>
-            <li><a href="#contact" class="hover:text-blue-400"><b>Contact</b></a></li>
-        </ul>
+       <ul class="flex space-x-6 items-center">
+    <li><a href="#about" class="hover:text-blue-400">About</a></li>
+    <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+    <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+    <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+
+    <button id="theme-toggle" class="ml-6 text-xl">
+        <i class="fas fa-moon"></i>
+    </button>
+</ul>
     </nav>
 
-    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="text-blue-500">Sujeet Vishwakarma</span></h2>
-        <p class="text-xl text-gray-400 max-w-2xl">MCA Student | Full Stack Web Developer | AI Enthusiast</p>
-        <div class="mt-8">
-            <a href="#projects" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-bold transition">View My Work</a>
-        </div>
-    </section>
+    <section id="home"
+class="h-screen flex flex-col justify-center items-center text-center px-4">
+
+<!-- Logo Image -->
+<img src="logo.png"
+class="w-[400px] mt-[10px]" alt="Logo">
+
+<h2 class="text-5xl md:text-7xl font-extrabold mb-1">
+Hi, I'm <span class="text-blue-500">Sujeet Vishwakarma</span>
+</h2>
+
+<p class="text-xl text-gray-400 max-w-2xl">
+MCA Student | Full Stack Web Developer | AI Enthusiast
+</p>
+
+<div class="mt-[20px] flex justify-center gap-4">
+
+<!-- Download Button -->
+<a href="resume tm.pdf" download
+class="bg-gray-700 hover:bg-blue-500 px-8 py-3 rounded-full font-bold inline-block transition duration-300">
+Download Resume
+</a>
+
+<!-- Print Button -->
+<button onclick="printResume()"
+class="bg-gray-700 hover:bg-green-500 px-8 py-3 rounded-full font-bold transition duration-300">
+Print Resume
+</button>
+
+</div>
+
+</section>
 
     <section id="about" class="py-20 px-8 bg-gray-800">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">About Me</h3>
-            <p class="text-gray-300 leading-relaxed text-lg text-justify">
+            <p id="about-text" class="text-gray-300 leading-relaxed text-lg text-justify">
                 I am a final-year MCA student with a strong passion for web development and cloud computing. I enjoy building responsive, scalable, and user-friendly web applications that solve real-world problems. Along with developing modern web solutions, I am deeply interested in cloud technologies and how applications can be deployed, managed, and scaled efficiently in the cloud.
 
-Throughout my academic journey, I have worked on various projects that strengthened my skills in front-end and back-end development, databases, and cloud fundamentals. I am a quick learner, problem solver, and always eager to explore new technologies. My goal is to start my career in a growth-oriented organization where I can apply my knowledge of web development and cloud computing while continuously improving my technical expertise.
-            </p>
+                Throughout my academic journey, I have worked on various projects that strengthened my skills in front-end and back-end development, databases, and cloud fundamentals. I am a quick learner, problem solver, and always eager to explore new technologies. My goal is to start my career in a growth-oriented organization where I can apply my knowledge of web development and cloud computing while continuously improving my technical expertise.
+                 </p>
         </div>
     </section>
 
@@ -55,19 +89,70 @@ Throughout my academic journey, I have worked on various projects that strengthe
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" id="skills-container">
             </div>
     </section>
+
     <section id="projects" class="py-20 px-8 bg-gray-800">
-        <h3 class="text-3xl font-bold text-center mb-12">Featured Projects</h3>
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" id="projects-container">
-            </div>
+    <h3 class="text-3xl font-bold text-center mb-12">Featured Projects</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" id="projects-container">
+    </div>
+     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Project 1 -->
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+            <h4 class="text-xl font-bold text-blue-400 mb-2">
+                Banking Management System
+            </h4>
+
+            <p class="text-gray-400 mb-4">
+                A full-stack system built using PHP & MySQL for managing transactions and accounts.
+            </p>
+
+            <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                PHP, MySQL, CSS
+            </span>
+        </div>
+
+
+        <!-- Project 2 -->
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+            <h4 class="text-xl font-bold text-blue-400 mb-2">
+                Student Management System
+            </h4>
+
+            <p class="text-gray-400 mb-4">
+                An automated platform to handle student records, admissions, and data management.
+            </p>
+
+            <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                PHP, MySQL
+            </span>
+        </div>
+
+
+        <!-- Project 3 -->
+        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+            <h4 class="text-xl font-bold text-blue-400 mb-2">
+                Personal Portfolio
+            </h4>
+
+            <p class="text-gray-400 mb-4">
+                A responsive website showcasing my journey, skills, and projects.
+            </p>
+
+            <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                HTML, Tailwind, JS
+            </span>
+        </div>
+
+    </div>
     </section>
 
     <section id="contact" class="py-20 text-center">
         <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
-        <p class="text-gray-400 mb-8">Currently looking for opportunities in Web Development.</p>
+        <p id="contact-text" class="text-gray-400 mb-8">Currently looking for opportunities in Web Development.</p>
         <div class="flex justify-center space-x-6 text-3xl">
             <a href="https://github.com/sujeetvishwakarma83" class="text-blue-400 hover:text-white"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHg3F4yUn04IAAAAZyE-Ph4ctTdTEOK6kQXqDmai-XvciizLlgiHPQmRV_ySGdLj_-B5PcFQ3bHWwNkXC5pDAm2djkhv8Wbytk8chLCQ80LZoK8fbw0Dhf4zcJYFQ9letgyy2o=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsujeet-vishwakarma-a19b2323a" class="text-blue-600 hover:text-white"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:sujeet8528420907@gmail.com" class="text-red-500 hover:text-white"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/sujeet-vishwakarma-a19b2323a" class="text-blue-600 hover:text-white"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your-sujeet8528420907@gmail.com" class="text-red-500 hover:text-white"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
 
@@ -75,70 +160,153 @@ Throughout my academic journey, I have worked on various projects that strengthe
         &copy; 2026 Sujeet Vishwakarma. Built with ❤️ and Code.
     </footer>
 
-    <script>
-        const skills = [
-            { name: 'HTML/CSS', icon: 'fa-code' },
-            { name: 'JavaScript', icon: 'fa-js' },
-            { name: 'PHP', icon: 'fa-php' },
-            { name: 'MySQL', icon: 'fa-database' },
-            { name: 'Cloud Computing', icon: 'fa-cloud' },
-            { name: 'AI/ML Concepts', icon: 'fa-robot' },
-            { name: 'Discrete Maths', icon: 'fa-square-root-variable' },
-            { name: 'Windows 11', icon: 'fa-windows' }
-        ];
+<script>
 
-        const projects = [
-            {
-                title: 'Banking Management System',
-                desc: 'A full-stack system built using PHP & MySQL for managing transactions and accounts.',
-                tech: 'PHP, MySQL, CSS'
-            },
-            {
-                title: 'Student Management System',
-                desc: 'An automated platform to handle student records, admissions, and data management.',
-                tech: 'PHP, MySQL'
-            },
-            {
-                title: 'Personal Portfolio',
-                desc: 'A responsive website showcasing my journey, skills, and projects.',
-                tech: 'HTML, Tailwind, JS'
-            }
-        ];
+// =============================
+// Skills Data
+// =============================
+const skills = [
+    { name: 'HTML/CSS', icon: 'fa-code' },
+    { name: 'JavaScript', icon: 'fa-js' },
+    { name: 'PHP', icon: 'fa-php' },
+    { name: 'MySQL', icon: 'fa-database' },
+    { name: 'Cloud Computing', icon: 'fa-cloud' },
+    { name: 'AI/ML Concepts', icon: 'fa-robot' },
+    { name: 'Discrete Maths', icon: 'fa-square-root-variable' },
+    { name: 'Windows 11', icon: 'fa-windows' }
+];
 
-        // Load Skills
-        const skillsContainer = document.getElementById('skills-container');
-        skills.forEach(skill => {
-            skillsContainer.innerHTML += `
-                <div class="glass p-6 rounded-xl text-center skill-card">
-                    <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
-                    <p class="font-semibold">${skill.name}</p>
-                </div>
-            `;
-        });
 
-        // Load Projects
-        const projectsContainer = document.getElementById('projects-container');
-        projects.forEach(proj => {
-            projectsContainer.innerHTML += `
-                <div class="bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
-                    <h4 class="text-xl font-bold text-blue-400 mb-2">${proj.title}</h4>
-                    <p class="text-gray-400 mb-4">${proj.desc}</p>
-                    <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">${proj.tech}</span>
-                </div>
-            `;
-        });
-    </script>
+// =============================
+// Load Skills Automatically
+// =============================
+const skillsContainer = document.getElementById('skills-container');
+
+if (skillsContainer) {
+    skills.forEach(skill => {
+        const skillCard = `
+        <div class="glass p-6 rounded-xl text-center skill-card">
+            <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
+            <p class="font-semibold">${skill.name}</p>
+        </div>
+        `;
+        skillsContainer.innerHTML += skillCard;
+    });
+}
+
+
+// =============================
+// Theme Toggle (Dark / Light)
+// =============================
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.getElementById("body");
+const navbar = document.getElementById("navbar");
+const aboutSection = document.getElementById("about");
+const projectsSection = document.getElementById("projects");
+const aboutText = document.getElementById("about-text");
+const contactText = document.getElementById("contact-text");
+
+if (toggleBtn) {
+
+const icon = toggleBtn.querySelector("i");
+
+toggleBtn.addEventListener("click", () => {
+
+    // Body Theme
+    body.classList.toggle("bg-gray-900");
+    body.classList.toggle("text-white");
+    body.classList.toggle("bg-white");
+    body.classList.toggle("text-black");
+
+    // Navbar
+    if(navbar){
+        navbar.classList.toggle("bg-gray-900");
+        navbar.classList.toggle("bg-white");
+        navbar.classList.toggle("border-gray-800");
+        navbar.classList.toggle("border-gray-300");
+    }
+
+    // About Section
+    if(aboutSection){
+        aboutSection.classList.toggle("bg-gray-800");
+        aboutSection.classList.toggle("bg-gray-100");
+    }
+
+    // Projects Section
+    if(projectsSection){
+        projectsSection.classList.toggle("bg-gray-800");
+        projectsSection.classList.toggle("bg-gray-100");
+    }
+
+    // Text Colors
+    if(aboutText){
+        aboutText.classList.toggle("text-gray-300");
+        aboutText.classList.toggle("text-black");
+    }
+
+    if(contactText){
+        contactText.classList.toggle("text-gray-400");
+        contactText.classList.toggle("text-black");
+    }
+
+    // Icon Change
+    if (body.classList.contains("bg-white")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+    }
+
+});
+
+}
+
+
+// =============================
+// Scroll Reveal Animation
+// =============================
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0px)";
+        }
+
+    });
+
+});
+
+sections.forEach(section => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+    section.style.transition = "all 0.8s ease";
+
+    observer.observe(section);
+
+});
+
+
+// =============================
+// Print Resume Function
+// =============================
+function printResume(){
+
+    const resumeWindow = window.open("resume tm.pdf");
+
+    if(resumeWindow){
+        resumeWindow.onload = function(){
+            resumeWindow.print();
+        };
+    }
+
+}
+
+</script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
