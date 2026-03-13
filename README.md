@@ -10,10 +10,9 @@ The goal of this portfolio is to present my work, technical abilities, and conta
 ## 🚀 Live Demo
 
 🌐 **Portfolio Website:**  
-(Add your GitHub Pages link here after deployment)
 
 Example:  
-https://sujeetvishwakarma.github.io/portfolio
+[https://sujeetvishwakarma.github.io/portfolio](https://sujeetvishwakarma83.github.io/portfolio/#projects)
 
 ---
 
