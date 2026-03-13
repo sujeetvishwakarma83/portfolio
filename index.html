@@ -99,7 +99,7 @@ Print Resume
      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
         <!-- Project 1 -->
-        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+        <div class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
             <h4 class="text-xl font-bold text-blue-400 mb-2">
                 Banking Management System
             </h4>
@@ -115,7 +115,7 @@ Print Resume
 
 
         <!-- Project 2 -->
-        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+        <div class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
             <h4 class="text-xl font-bold text-blue-400 mb-2">
                 Student Management System
             </h4>
@@ -131,7 +131,7 @@ Print Resume
 
 
         <!-- Project 3 -->
-        <div class="project-card bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
+        <div class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition">
             <h4 class="text-xl font-bold text-blue-400 mb-2">
                 Personal Portfolio
             </h4>
@@ -275,6 +275,16 @@ toggleBtn.addEventListener("click", () => {
         box.classList.toggle("text-black");
 
     });
+    // Change project box color in light mode
+const projectBoxes = document.querySelectorAll(".project-box");
+
+projectBoxes.forEach(box => {
+
+    box.classList.toggle("bg-gray-900"); // dark mode
+    box.classList.toggle("bg-gray-200"); // light mode
+    box.classList.toggle("text-black");
+
+});
 
     // Icon Change
     if (body.classList.contains("bg-white")) {
@@ -346,6 +356,7 @@ function printResume(){
 
 </script></body>
 </html>
+
 
 
 
