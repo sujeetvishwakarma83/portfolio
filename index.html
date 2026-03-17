@@ -6,6 +6,7 @@
     <title>Sujeet Vishwakarma | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
         html {
   scroll-behavior: smooth;
@@ -48,33 +49,30 @@ class="h-screen flex flex-col justify-center items-center text-center px-4">
 class="w-[400px] mt-[10px]" alt="Logo">
 
 <h2 class="text-5xl md:text-7xl font-extrabold mb-1">
-Hi, I'm <span class="text-blue-500">Sujeet Vishwakarma</span>
+<span id="typing-name" class="text-blue-500"></span>
 </h2>
 
 <p class="text-xl text-gray-400 max-w-2xl">
-MCA Student | Full Stack Web Developer | AI Enthusiast
+<span id="typing-role"></span>
 </p>
 
 <div class="mt-[20px] flex justify-center gap-4">
 
-<!-- Download Button -->
 <a href="resume tm.pdf" download
 class="bg-gray-700 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
 <i class="fas fa-download"></i>
 Download Resume
 </a>
 
-<!-- Print Button -->
 <button onclick="printResume()"
 class="bg-gray-700 hover:bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
 <i class="fas fa-print"></i>
-View Resume
+Print Resume
 </button>
 
 </div>
 
 </section>
-
     <section id="about" class="py-20 px-8 bg-gray-800">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">About Me</h3>
@@ -362,7 +360,22 @@ function printResume(){
     }
 
 }
-
+        var typed1 = new Typed("#typing-name", {
+        strings: ["Hi, I'm Sujeet Vishwakarma"],
+        typeSpeed: 60,
+        showCursor: false
+        });
+        
+        var typed2 = new Typed("#typing-role", {
+        strings: [
+        "MCA Student",
+        "Full Stack Web Developer",
+        "AI Enthusiast"
+        ],
+        typeSpeed: 60,
+        backSpeed: 40,
+        loop: true
+        });
 </script></body>
 </html>
 
