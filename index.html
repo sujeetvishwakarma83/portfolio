@@ -21,6 +21,23 @@
                         transition: 0.3s;
                         box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.25), rgba(8, 47, 73, 0.2), rgba(55, 48, 163, 0.25));
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+        .float-animation {
+            animation: float 3.5s ease-in-out infinite;
+        }
     </style>
 </head>
 <body id="body" class="bg-gray-900 text-white font-sans">
@@ -41,37 +58,75 @@
 </ul>
     </nav>
 
-    <section id="home"
-class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden">
+<div class="absolute inset-0 hero-gradient -z-10"></div>
 
-<!-- Logo Image -->
-<img src="logo.png"
-class="w-[400px] mt-[10px]" alt="Logo">
+<img src="logo.png" class="w-24 md:w-28 mt-2 mb-5 rounded-full float-animation" alt="Logo">
 
-<h2 class="text-5xl md:text-7xl font-extrabold mb-1">
-<span id="typing-name" class="text-blue-500"></span>
+<h2 class="text-4xl md:text-6xl font-extrabold mb-2 leading-tight">
+<span id="typing-name" class="text-blue-400"></span>
 </h2>
 
-<p class="text-xl text-gray-400 max-w-2xl">
+<p class="text-base md:text-lg text-blue-300 font-semibold tracking-wide mb-2">Freelance Full Stack Developer</p>
+
+<p class="text-lg text-gray-300 max-w-2xl">
 <span id="typing-role"></span>
 </p>
 
-<div class="mt-[20px] flex justify-center gap-4">
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-sm md:text-base w-full max-w-3xl">
+    <div class="bg-gray-800/60 border border-blue-900/40 rounded-xl px-4 py-3">
+        <p class="text-2xl font-bold text-blue-400">50+</p>
+        <p class="text-gray-300">Projects Completed</p>
+    </div>
+    <div class="bg-gray-800/60 border border-blue-900/40 rounded-xl px-4 py-3">
+        <p class="text-2xl font-bold text-blue-400">4.9★</p>
+        <p class="text-gray-300">Client Rating</p>
+    </div>
+    <div class="bg-gray-800/60 border border-blue-900/40 rounded-xl px-4 py-3">
+        <p class="text-2xl font-bold text-blue-400">30+</p>
+        <p class="text-gray-300">Happy Clients</p>
+    </div>
+</div>
+
+<div class="mt-8 flex flex-wrap justify-center gap-4">
+<a href="#contact"
+class="bg-blue-600 hover:bg-blue-500 text-white px-7 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 hover:scale-105">
+<i class="fas fa-handshake"></i>
+Hire Me
+</a>
+
+<a href="#projects"
+class="bg-indigo-600 hover:bg-indigo-500 text-white px-7 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 hover:scale-105">
+<i class="fas fa-briefcase"></i>
+View Projects
+</a>
 
 <a href="resume tm.pdf" download
-class="bg-gray-700 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
+class="bg-gray-700 hover:bg-gray-600 text-white px-7 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 hover:scale-105">
 <i class="fas fa-download"></i>
 Download Resume
 </a>
 
 <button onclick="printResume()"
-class="bg-gray-700 hover:bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
+class="bg-emerald-700 hover:bg-emerald-600 text-white px-7 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 hover:scale-105">
 <i class="fas fa-print"></i>
 Print Resume
 </button>
-
 </div>
 
+<div class="mt-8 max-w-3xl">
+    <p class="text-gray-300 text-sm mb-3">Services I Offer</p>
+    <div class="flex flex-wrap justify-center gap-3 text-sm">
+        <span class="bg-gray-800/80 border border-blue-900/40 px-4 py-1.5 rounded-full">Web Development</span>
+        <span class="bg-gray-800/80 border border-blue-900/40 px-4 py-1.5 rounded-full">Mobile Apps</span>
+        <span class="bg-gray-800/80 border border-blue-900/40 px-4 py-1.5 rounded-full">Database Design</span>
+        <span class="bg-gray-800/80 border border-blue-900/40 px-4 py-1.5 rounded-full">UI/UX</span>
+    </div>
+</div>
+
+<a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 hover:text-blue-400 transition animate-bounce">
+    <i class="fas fa-chevron-down text-2xl"></i>
+</a>
 </section>
     <section id="about" class="py-20 px-8 bg-gray-800">
         <div class="max-w-4xl mx-auto">
@@ -378,8 +433,6 @@ function printResume(){
         });
 </script></body>
 </html>
-
-
 
 
 
