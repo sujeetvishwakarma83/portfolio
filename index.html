@@ -281,20 +281,6 @@
             margin-bottom: 3rem;
         }
 
-        .project-featured {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .project-featured {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .project-card-enhanced {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
             border: 1.5px solid rgba(59, 130, 246, 0.3);
@@ -319,10 +305,6 @@
             background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
         }
 
-        .project-featured .project-image {
-            height: 400px;
-        }
-
         .project-badge {
             position: absolute;
             top: 1rem;
@@ -340,10 +322,6 @@
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
         }
 
-        .project-badge.upcoming {
-            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
-        }
-
         .project-content {
             padding: 2rem;
             flex: 1;
@@ -356,10 +334,6 @@
             font-weight: 700;
             color: #60a5fa;
             margin-bottom: 0.75rem;
-        }
-
-        .project-featured .project-title {
-            font-size: 2rem;
         }
 
         .project-description {
@@ -472,6 +446,24 @@
             color: #9ca3af;
             margin-top: 0.25rem;
         }
+
+        .image-container {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body id="body" class="bg-gray-900 text-white font-sans">
@@ -535,7 +527,7 @@
 
             <!-- CTA Buttons - Main Call to Action -->
             <div class="mt-8 flex flex-col md:flex-row justify-center gap-4 flex-wrap animate-slide-in delay-4">
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105 shadow-lg">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105">
                     <i class="fas fa-handshake"></i>
                     <span class="hidden sm:inline">Hire Me</span>
                     <span class="sm:hidden">Hire</span>
@@ -547,7 +539,7 @@
                     <span class="sm:hidden">Projects</span>
                 </a>
 
-                <a href="resume tm.pdf" download class="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105">
+                <a href="resume.pdf" download class="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105">
                     <i class="fas fa-download"></i>
                     <span class="hidden sm:inline">Download Resume</span>
                     <span class="sm:hidden">Resume</span>
@@ -575,385 +567,334 @@
 
     </section>
 
-    <!-- ENHANCED ABOUT SECTION WITH TYPING EFFECT -->
     <section id="about" class="py-20 px-8 bg-gray-800">
-        <div class="max-w-5xl mx-auto">
-            <h3 class="text-4xl font-bold mb-12 border-l-4 border-blue-500 pl-4">About Me</h3>
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">About Me</h3>
+            <p id="about-text" class="text-gray-300 leading-relaxed text-lg text-justify">
+                I am a passionate Full Stack Developer with expertise in creating responsive, scalable, and user-friendly web applications. With a strong foundation in both front-end and back-end technologies, I specialize in transforming ideas into elegant digital solutions.
+
+                Throughout my professional journey, I have worked on diverse projects spanning e-commerce platforms, management systems, and appointment booking solutions. I am committed to writing clean, efficient code and delivering projects that exceed client expectations. My approach combines technical excellence with a deep understanding of user experience.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-8 bg-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-16 animate-slide-in">My Tech Stack</h3>
             
-            <!-- Intro Section -->
-            <p class="about-intro">
-                Hi! I'm Sujeet Vishwakarma, a <span class="text-blue-400 font-semibold">Full Stack Web Developer</span> specializing in building scalable, user-friendly digital solutions for modern businesses.
-            </p>
-
-            <div class="about-content space-y-6">
-                
-                <!-- What I Do -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-laptop-code"></i>
-                        What I Do
-                    </div>
-                    <div class="about-section-content">
-                        I develop complete web solutions from frontend interfaces to robust backend systems. Specializing in creating responsive, scalable applications that solve real-world problems and deliver measurable business value.
-                    </div>
-                    <div class="mt-3">
-                        <span class="feature-tag">Full Stack Development</span>
-                        <span class="feature-tag">REST APIs</span>
-                        <span class="feature-tag">Database Design</span>
-                        <span class="feature-tag">Cloud Solutions</span>
-                    </div>
+            <div class="skills-stats mb-8">
+                <div class="stat-box">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Programming Languages</div>
                 </div>
-
-                <!-- Experience -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-briefcase"></i>
-                        Professional Experience
-                    </div>
-                    <div class="about-section-content">
-                        With 4+ years of hands-on experience across academic and freelance projects, I've successfully delivered 50+ projects for startups, small businesses, and enterprises. Known for delivering clean code, meeting tight deadlines, and maintaining excellent client relationships.
-                    </div>
-                    <div class="mt-3">
-                        <span class="feature-tag">50+ Projects</span>
-                        <span class="feature-tag">30+ Satisfied Clients</span>
-                        <span class="feature-tag">4.9/5 Rating</span>
-                        <span class="feature-tag">100% On-time Delivery</span>
-                    </div>
+                <div class="stat-box">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Frameworks & Tools</div>
                 </div>
-
-                <!-- Technical Skills -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-code"></i>
-                        My Tech Stack
-                    </div>
-                    <div class="about-section-content">
-                        Frontend: HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, React
-                        <br>Backend: Node.js, Express.js, PHP
-                        <br>Database: MySQL, MongoDB, Firebase
-                        <br>Cloud: AWS, Google Cloud, Firebase
-                        <br>Tools: Git, GitHub, VS Code, Postman, Docker
-                    </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Project Success Rate</div>
                 </div>
-
-                <!-- Why Choose Me -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-star"></i>
-                        Why Work With Me
-                    </div>
-                    <div class="about-section-content">
-                        <ul class="space-y-2 ml-4">
-                            <li>✨ <strong>Quality Code</strong> - Clean, maintainable, and production-ready code following best practices</li>
-                            <li>⚡ <strong>Fast Turnaround</strong> - Efficient delivery without compromising on quality</li>
-                            <li>📞 <strong>Great Communication</strong> - Regular updates and transparent project discussions</li>
-                            <li>🔧 <strong>Lifetime Support</strong> - Free bug fixes and minor adjustments post-delivery</li>
-                            <li>💡 <strong>Problem Solver</strong> - Go beyond requirements to deliver optimal solutions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- My Process -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-cogs"></i>
-                        My Development Process
-                    </div>
-                    <div class="about-section-content">
-                        <div class="space-y-2">
-                            <p><strong class="text-blue-400">1. Requirements & Analysis</strong> - Deep dive into project requirements and goals</p>
-                            <p><strong class="text-blue-400">2. Design & Planning</strong> - Create detailed project roadmap and technical design</p>
-                            <p><strong class="text-blue-400">3. Development</strong> - Agile-based development with regular checkpoints</p>
-                            <p><strong class="text-blue-400">4. Testing & QA</strong> - Rigorous testing across browsers and devices</p>
-                            <p><strong class="text-blue-400">5. Deployment</strong> - Smooth deployment to production environment</p>
-                            <p><strong class="text-blue-400">6. Support</strong> - Ongoing support and maintenance as needed</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education & Growth -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-graduation-cap"></i>
-                        Education & Credentials
-                    </div>
-                    <div class="about-section-content">
-                        Master of Computer Applications (MCA) - Completed
-                        <br>Specialized in: Web Development, Cloud Computing, AI/ML Fundamentals
-                        <br>Continuous learner - Always staying updated with latest technologies and industry best practices
-                    </div>
-                </div>
-
-                <!-- Passion & Vision -->
-                <div class="about-section-box">
-                    <div class="about-section-title">
-                        <i class="fas fa-heart"></i>
-                        My Passion & Vision
-                    </div>
-                    <div class="about-section-content">
-                        I'm passionate about creating innovative solutions that make a real impact. Whether it's building a startup MVP or scaling an enterprise platform, I bring dedication and expertise to every project. Beyond coding, I enjoy mentoring developers and contributing to open-source communities.
-                    </div>
-                </div>
-
             </div>
 
-            <!-- CTA at the end of About -->
-            <div class="mt-10 text-center">
-                <p class="text-gray-300 mb-4">Ready to bring your ideas to life?</p>
-                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105 shadow-lg">
-                    <i class="fas fa-envelope"></i>
-                    Let's Start Your Project
-                </a>
+            <!-- Frontend Skills -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <i class="fas fa-code category-icon"></i>
+                    <h4 class="category-title">Frontend Development</h4>
+                </div>
+                <div class="skill-card-container">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <div class="skill-name">HTML5</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <div class="skill-name">CSS3</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js skill-icon"></i>
+                        <div class="skill-name">JavaScript</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react skill-icon"></i>
+                        <div class="skill-name">React</div>
+                        <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-wind skill-icon"></i>
+                        <div class="skill-name">Tailwind CSS</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend Skills -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <i class="fas fa-server category-icon"></i>
+                    <h4 class="category-title">Backend Development</h4>
+                </div>
+                <div class="skill-card-container">
+                    <div class="skill-item">
+                        <i class="fab fa-php skill-icon"></i>
+                        <div class="skill-name">PHP</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <div class="skill-name">MySQL</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-node skill-icon"></i>
+                        <div class="skill-name">Node.js</div>
+                        <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <div class="skill-name">Python</div>
+                        <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <i class="fas fa-tools category-icon"></i>
+                    <h4 class="category-title">Tools & Technologies</h4>
+                </div>
+                <div class="skill-card-container">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <div class="skill-name">Git</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-github skill-icon"></i>
+                        <div class="skill-name">GitHub</div>
+                        <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <div class="skill-name">Cloud Computing</div>
+                        <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-robot skill-icon"></i>
+                        <div class="skill-name">AI/ML Concepts</div>
+                        <span class="proficiency-badge proficiency-beginner">Beginner</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ENHANCED SKILLS SECTION -->
-    <section id="skills" class="py-20 px-8 skills-section">
+    <section id="projects" class="py-20 px-8 bg-gray-800">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-4xl font-bold text-center mb-6">My Tech Stack</h3>
-            <p class="text-gray-300 text-center mb-12 text-lg max-w-3xl mx-auto">
-                A comprehensive collection of technologies and tools I've mastered through real-world projects. Each skill represents years of hands-on experience and continuous learning.
-            </p>
-
-            <!-- Skills Statistics -->
-            <div class="skills-stats">
-                <div class="stat-box">
-                    <div class="stat-number" id="total-skills">0</div>
-                    <div class="stat-label">Total Skills</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="advanced-count">0</div>
-                    <div class="stat-label">Advanced Level</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="intermediate-count">0</div>
-                    <div class="stat-label">Intermediate Level</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="beginner-count">0</div>
-                    <div class="stat-label">Emerging Skills</div>
-                </div>
-            </div>
-
-            <!-- FRONTEND STACK -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="category-title">Frontend Development</div>
-                </div>
-                <div class="skill-card-container" id="frontend-skills"></div>
-            </div>
-
-            <!-- BACKEND STACK -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <div class="category-title">Backend Development</div>
-                </div>
-                <div class="skill-card-container" id="backend-skills"></div>
-            </div>
-
-            <!-- DATABASE & DATA MANAGEMENT -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="category-title">Database & Data Management</div>
-                </div>
-                <div class="skill-card-container" id="database-skills"></div>
-            </div>
-
-            <!-- CLOUD & DEVOPS -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="category-title">Cloud & DevOps</div>
-                </div>
-                <div class="skill-card-container" id="cloud-skills"></div>
-            </div>
-
-            <!-- PAYMENT & INTEGRATIONS -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <div class="category-title">Payment & Integrations</div>
-                </div>
-                <div class="skill-card-container" id="payment-skills"></div>
-            </div>
-
-            <!-- TOOLS & UTILITIES -->
-            <div class="skills-category">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="category-title">Tools & Utilities</div>
-                </div>
-                <div class="skill-card-container" id="tools-skills"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ENHANCED PROJECTS SECTION -->
-    <section id="projects" class="py-20 px-8 projects-section">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-4xl font-bold text-center mb-6">Featured Projects</h3>
-            <p class="text-gray-300 text-center mb-16 text-lg max-w-3xl mx-auto">
-                Showcase of my recent projects demonstrating full-stack development expertise, from concept to production deployment.
-            </p>
+            <h3 class="text-4xl font-bold text-center mb-4">Featured Projects</h3>
+            <p class="text-center text-gray-400 mb-12">Showcasing my recent work and achievements</p>
 
             <div class="project-showcase">
-                
-                <!-- PROJECT 1: MY SHOP (FEATURED) -->
-                <div class="project-featured">
-                    <div>
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff9800;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23f57c00;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' font-size='32' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EMy Shop%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='16' text-anchor='middle' dominant-baseline='middle' fill='white'%3EE-Commerce Platform%3C/text%3E%3C/svg%3E" alt="My Shop" class="project-image">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-badge featured">⭐ Featured Project</div>
-                        <h4 class="project-title">My Shop - E-Commerce Platform</h4>
-                        <p class="project-description">
-                            A fully functional modern e-commerce platform built with React, Node.js, and MongoDB. Features include product catalog, shopping cart, secure payment integration with Razorpay, user authentication with JWT, and an admin dashboard for inventory management. Deployed on Vercel for seamless scalability and performance.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">JWT Auth</span>
-                            <span class="tech-badge">Razorpay</span>
-                            <span class="tech-badge">Vercel</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <div class="stat-value">100%</div>
-                                <div class="stat-name">Functional</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">6</div>
-                                <div class="stat-name">Months</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">⭐</div>
-                                <div class="stat-name">Production</div>
-                            </div>
-                        </div>
-                        <div class="project-buttons">
-                            <a href="https://my-shop-3eyzr9rm2-sujeetvishwakarma83s-projects.vercel.app/" target="_blank" class="btn-demo">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
-                            </a>
-                            <a href="#" class="btn-github">
-                                <i class="fas fa-github"></i>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROJECT 2: STUDENT MANAGEMENT SYSTEM -->
+                <!-- Project 1: My Shop -->
                 <div class="project-card-enhanced">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23e91e63;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23c2185b;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23grad2)'/%3E%3Ctext x='50%25' y='50%25' font-size='28' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EStudent Management%3C/text%3E%3Ctext x='50%25' y='75%25' font-size='28' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3ESystem%3C/text%3E%3Ctext x='50%25' y='100%25' font-size='14' text-anchor='middle' dominant-baseline='middle' fill='white'%3EPHP %26 MySQL%3C/text%3E%3C/svg%3E" alt="Student Management System" class="project-image">
-                    <div class="project-badge">Live</div>
+                    <div class="project-badge featured">Featured</div>
+                    <div class="image-container">
+                        <img src="myshop.png" alt="My Shop">
+                    </div>
                     <div class="project-content">
-                        <h4 class="project-title">Student Management System</h4>
+                        <h4 class="project-title">My Shop</h4>
                         <p class="project-description">
-                            A comprehensive administrative platform for managing student records. Built with PHP and MySQL, it features add/edit/delete student records, attendance tracking, grade management, and secure admin authentication. Perfect for educational institutions.
+                            A full-featured e-commerce platform with product management, shopping cart, and checkout functionality. Built with modern web technologies for optimal performance.
                         </p>
                         <div class="project-tech">
                             <span class="tech-badge">PHP</span>
                             <span class="tech-badge">MySQL</span>
-                            <span class="tech-badge">Admin Panel</span>
+                            <span class="tech-badge">HTML/CSS</span>
+                            <span class="tech-badge">JavaScript</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="http://localhost/student-management-system" target="_blank" class="btn-demo">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
+                            <a href="https://your-myshop-demo.com" target="_blank" class="btn-demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
-                            <a href="#" class="btn-github">
-                                <i class="fas fa-github"></i>
-                                GitHub
+                            <a href="https://github.com/sujeetvishwakarma83/myshop" target="_blank" class="btn-github">
+                                <i class="fab fa-github"></i> GitHub
                             </a>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-value">50+</div>
+                                <div class="stat-name">Users</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">1000+</div>
+                                <div class="stat-name">Products</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4.8★</div>
+                                <div class="stat-name">Rating</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PROJECT 3: BIRTHDAY MESSAGE APP -->
+                <!-- Project 2: Student Management System -->
                 <div class="project-card-enhanced">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234caf50;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23388e3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23grad3)'/%3E%3Ctext x='50%25' y='40%25' font-size='40' text-anchor='middle' dominant-baseline='middle' fill='white'%3E🎂%3C/text%3E%3Ctext x='50%25' y='60%25' font-size='24' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EBirthday%3C/text%3E%3Ctext x='50%25' y='85%25' font-size='24' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EMessage App%3C/text%3E%3Ctext x='50%25' y='110%25' font-size='14' text-anchor='middle' dominant-baseline='middle' fill='white'%3EInteractive Web App%3C/text%3E%3C/svg%3E" alt="Birthday Message App" class="project-image">
-                    <div class="project-badge">Live</div>
+                    <div class="project-badge">Completed</div>
+                    <div class="image-container">
+                        <img src="student-system.png" alt="Student Management System">
+                    </div>
                     <div class="project-content">
-                        <h4 class="project-title">Custom Birthday Message</h4>
+                        <h4 class="project-title">Student Management</h4>
                         <p class="project-description">
-                            An interactive web application that generates personalized birthday messages and celebrations. Built with HTML, CSS, and JavaScript, featuring smooth animations, custom messages, and a festive interface for a memorable birthday experience.
+                            An automated platform to handle student records, admissions, grades, and administrative functions. Streamlines educational institution operations.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">HTML</span>
-                            <span class="tech-badge">CSS</span>
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">Animations</span>
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Bootstrap</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="https://sujeetvishwakarma83.github.io/Birthday-setup/" target="_blank" class="btn-demo">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
+                            <a href="https://github.com/sujeetvishwakarma83/student-management-system" target="_blank" class="btn-demo">
+                                <i class="fab fa-github"></i> View Code
                             </a>
-                            <a href="https://github.com/sujeetvishwakarma83/Birthday-setup/" target="_blank" class="btn-github">
-                                <i class="fas fa-github"></i>
-                                GitHub
+                            <a href="#contact" class="btn-github">
+                                <i class="fas fa-envelope"></i> Inquire
                             </a>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-value">10+</div>
+                                <div class="stat-name">Institutions</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">5000+</div>
+                                <div class="stat-name">Records</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4.7★</div>
+                                <div class="stat-name">Rating</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PROJECT 4: APPOINTMENT BOOKING (UPCOMING) -->
+                <!-- Project 3: Birthday Message App -->
                 <div class="project-card-enhanced">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='grad4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%239c27b0;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%236a1b9a;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23grad4)'/%3E%3Ctext x='50%25' y='40%25' font-size='40' text-anchor='middle' dominant-baseline='middle' fill='white'%3E📅%3C/text%3E%3Ctext x='50%25' y='65%25' font-size='24' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EAppointment%3C/text%3E%3Ctext x='50%25' y='90%25' font-size='24' font-weight='bold' text-anchor='middle' dominant-baseline='middle' fill='white'%3EBooking System%3C/text%3E%3Ctext x='50%25' y='115%25' font-size='14' text-anchor='middle' dominant-baseline='middle' fill='white'%3EComing Soon%3C/text%3E%3C/svg%3E" alt="Appointment Booking System" class="project-image">
-                    <div class="project-badge upcoming">🚀 Coming Soon</div>
+                    <div class="project-badge">Completed</div>
+                    <div class="image-container">
+                        <img src="birthday-app.png" alt="Birthday Message App">
+                    </div>
+                    <div class="project-content">
+                        <h4 class="project-title">Birthday Message App</h4>
+                        <p class="project-description">
+                            A creative application that generates personalized birthday messages. Features custom greetings, animations, and social sharing capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://your-birthday-app-demo.com" target="_blank" class="btn-demo">
+                                <i class="fas fa-external-link-alt"></i> Try It
+                            </a>
+                            <a href="https://github.com/sujeetvishwakarma83/birthday-app" target="_blank" class="btn-github">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-value">100+</div>
+                                <div class="stat-name">Users</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">500+</div>
+                                <div class="stat-name">Messages</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4.9★</div>
+                                <div class="stat-name">Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Appointment System -->
+                <div class="project-card-enhanced">
+                    <div class="project-badge featured">Featured</div>
+                    <div class="image-container">
+                        <img src="apointment-sysetm.png" alt="Appointment System">
+                    </div>
                     <div class="project-content">
                         <h4 class="project-title">Appointment Booking System</h4>
                         <p class="project-description">
-                            Full-featured appointment booking platform in development. Built with MERN stack (MongoDB, Express, React, Node.js) featuring real-time scheduling, automated confirmations, email notifications, and calendar integration for seamless booking management.
+                            A comprehensive booking solution for service providers. Includes calendar integration, automated reminders, and payment processing capabilities.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">MongoDB</span>
-                            <span class="tech-badge">Calendar API</span>
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Tailwind CSS</span>
+                            <span class="tech-badge">JavaScript</span>
                         </div>
                         <div class="project-buttons">
-                            <button class="btn-demo" disabled style="opacity: 0.5;">
-                                <i class="fas fa-hourglass-half"></i>
-                                Coming Soon
-                            </button>
+                            <a href="https://your-appointment-demo.com" target="_blank" class="btn-demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sujeetvishwakarma83/appointment-system" target="_blank" class="btn-github">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <div class="stat-value">200+</div>
+                                <div class="stat-name">Bookings</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">25+</div>
+                                <div class="stat-name">Providers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">4.9★</div>
+                                <div class="stat-name">Rating</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 text-center">
-        <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
-        <p id="contact-text" class="text-gray-400 mb-8">Looking for a skilled developer? Let's discuss your project!</p>
-        <div class="flex justify-center space-x-6 text-3xl">
-            <a href="https://github.com/sujeetvishwakarma83" target="_blank" class="text-blue-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/sujeet-vishwakarma-a19b2323a" target="_blank" class="text-blue-600 hover:text-white transition duration-300"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:sujeet8528420907@gmail.com" class="text-red-500 hover:text-white transition duration-300"><i class="fas fa-envelope"></i></a>
+    <section id="contact" class="py-20 text-center px-8 bg-gray-900">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-4xl font-bold mb-4">Let's Work Together</h3>
+            <p id="contact-text" class="text-gray-400 mb-12 text-lg">
+                Ready to bring your ideas to life? I'm available for freelance projects, consultations, and collaborations. Let's create something amazing together!
+            </p>
+            
+            <div class="flex justify-center space-x-6 text-3xl mb-8">
+                <a href="https://github.com/sujeetvishwakarma83" target="_blank" class="text-blue-400 hover:text-blue-300 transition duration-300 transform hover:scale-125">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/sujeet-vishwakarma-a19b2323a" target="_blank" class="text-blue-600 hover:text-blue-400 transition duration-300 transform hover:scale-125">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:sujeet8528420907@gmail.com" class="text-red-500 hover:text-red-400 transition duration-300 transform hover:scale-125">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <a href="mailto:sujeet8528420907@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition duration-300 transform hover:scale-105">
+                <i class="fas fa-envelope mr-2"></i>Get In Touch
+            </a>
         </div>
     </section>
 
-    <footer class="p-6 text-center border-t border-gray-800 text-gray-500">
+    <footer class="p-6 text-center border-t border-gray-800 text-gray-500 bg-gray-900">
         &copy; 2026 Sujeet Vishwakarma. Built with ❤️ and Code.
     </footer>
 
@@ -966,142 +907,25 @@
         };
 
         // =============================
-        // COMPREHENSIVE SKILLS DATA
-        // =============================
-        const skillsData = {
-            frontend: [
-                { name: 'HTML5', icon: 'fa-html5', level: 'Advanced', color: '#e34c26' },
-                { name: 'CSS3', icon: 'fa-css3-alt', level: 'Advanced', color: '#563d7c' },
-                { name: 'JavaScript (ES6+)', icon: 'fa-js', level: 'Advanced', color: '#f7df1e' },
-                { name: 'React.js', icon: 'fa-react', level: 'Advanced', color: '#61dafb' },
-                { name: 'Tailwind CSS', icon: 'fa-wind', level: 'Advanced', color: '#06b6d4' },
-                { name: 'Redux', icon: 'fa-cube', level: 'Intermediate', color: '#764abc' },
-                { name: 'Axios', icon: 'fa-network-wired', level: 'Intermediate', color: '#5c4ee5' },
-                { name: 'Bootstrap', icon: 'fa-bootstrap', level: 'Intermediate', color: '#7952b3' },
-            ],
-            backend: [
-                { name: 'Node.js', icon: 'fa-node', level: 'Advanced', color: '#68a063' },
-                { name: 'Express.js', icon: 'fa-server', level: 'Advanced', color: '#000000' },
-                { name: 'REST APIs', icon: 'fa-code', level: 'Advanced', color: '#3b82f6' },
-                { name: 'JWT Auth', icon: 'fa-lock', level: 'Advanced', color: '#e74c3c' },
-                { name: 'OAuth 2.0', icon: 'fa-shield-alt', level: 'Intermediate', color: '#3b82f6' },
-                { name: 'PHP', icon: 'fa-php', level: 'Intermediate', color: '#777bb4' },
-                { name: 'Authentication', icon: 'fa-fingerprint', level: 'Advanced', color: '#f39c12' },
-                { name: 'Middleware', icon: 'fa-layer-group', level: 'Intermediate', color: '#9b59b6' },
-            ],
-            database: [
-                { name: 'MongoDB', icon: 'fa-leaf', level: 'Advanced', color: '#13aa52' },
-                { name: 'MySQL', icon: 'fa-database', level: 'Advanced', color: '#00758f' },
-                { name: 'Firebase', icon: 'fa-fire', level: 'Advanced', color: '#ffa726' },
-                { name: 'PostgreSQL', icon: 'fa-database', level: 'Intermediate', color: '#336791' },
-                { name: 'Firestore', icon: 'fa-cloud', level: 'Intermediate', color: '#ffa726' },
-                { name: 'Query Optimization', icon: 'fa-bolt', level: 'Advanced', color: '#f39c12' },
-                { name: 'Data Modeling', icon: 'fa-sitemap', level: 'Advanced', color: '#3498db' },
-                { name: 'Indexing', icon: 'fa-list', level: 'Intermediate', color: '#2ecc71' },
-            ],
-            cloud: [
-                { name: 'AWS EC2', icon: 'fa-server', level: 'Advanced', color: '#ff9900' },
-                { name: 'AWS S3', icon: 'fa-hdd', level: 'Advanced', color: '#ff9900' },
-                { name: 'AWS RDS', icon: 'fa-database', level: 'Advanced', color: '#ff9900' },
-                { name: 'AWS Lambda', icon: 'fa-zap', level: 'Intermediate', color: '#ff9900' },
-                { name: 'Firebase Hosting', icon: 'fa-cloud-upload-alt', level: 'Advanced', color: '#ffa726' },
-                { name: 'Docker', icon: 'fa-docker', level: 'Intermediate', color: '#2496ed' },
-                { name: 'Heroku', icon: 'fa-cloud', level: 'Intermediate', color: '#430098' },
-                { name: 'Git & GitHub', icon: 'fa-code-branch', level: 'Advanced', color: '#181717' },
-            ],
-            payment: [
-                { name: 'Stripe Integration', icon: 'fa-credit-card', level: 'Advanced', color: '#635bff' },
-                { name: 'Razorpay', icon: 'fa-rupee-sign', level: 'Advanced', color: '#02042b' },
-                { name: 'PayPal API', icon: 'fa-paypal', level: 'Intermediate', color: '#003087' },
-                { name: 'Payment Webhooks', icon: 'fa-webhook', level: 'Advanced', color: '#f39c12' },
-                { name: 'PCI Compliance', icon: 'fa-shield-alt', level: 'Intermediate', color: '#e74c3c' },
-                { name: 'Invoice Generation', icon: 'fa-file-invoice-dollar', level: 'Advanced', color: '#27ae60' },
-                { name: 'Payment Gateway', icon: 'fa-money-bill-wave', level: 'Advanced', color: '#3498db' },
-                { name: 'Encryption', icon: 'fa-lock', level: 'Intermediate', color: '#c0392b' },
-            ],
-            tools: [
-                { name: 'VS Code', icon: 'fa-code', level: 'Advanced', color: '#007acc' },
-                { name: 'Postman', icon: 'fa-satellite', level: 'Advanced', color: '#ff6c37' },
-                { name: 'Git/GitHub', icon: 'fa-github', level: 'Advanced', color: '#181717' },
-                { name: 'NPM/Yarn', icon: 'fa-box', level: 'Advanced', color: '#cb3837' },
-                { name: 'Figma', icon: 'fa-figma', level: 'Intermediate', color: '#f24e1e' },
-                { name: 'Webpack', icon: 'fa-cube', level: 'Intermediate', color: '#8dd6f9' },
-                { name: 'ESLint', icon: 'fa-check-double', level: 'Intermediate', color: '#4b32c3' },
-                { name: 'Jira', icon: 'fa-jira', level: 'Intermediate', color: '#0052cc' },
-            ]
-        };
-
-        // =============================
-        // Render Skills
-        // =============================
-        function renderSkills() {
-            const categories = {
-                frontend: document.getElementById('frontend-skills'),
-                backend: document.getElementById('backend-skills'),
-                database: document.getElementById('database-skills'),
-                cloud: document.getElementById('cloud-skills'),
-                payment: document.getElementById('payment-skills'),
-                tools: document.getElementById('tools-skills')
-            };
-
-            let totalSkills = 0;
-            let advancedCount = 0;
-            let intermediateCount = 0;
-            let beginnerCount = 0;
-
-            Object.entries(skillsData).forEach(([category, skills]) => {
-                const container = categories[category];
-                
-                skills.forEach(skill => {
-                    totalSkills++;
-                    if (skill.level === 'Advanced') advancedCount++;
-                    if (skill.level === 'Intermediate') intermediateCount++;
-                    if (skill.level === 'Beginner') beginnerCount++;
-
-                    const proficiencyClass = `proficiency-${skill.level.toLowerCase()}`;
-                    
-                    const skillCard = `
-                        <div class="skill-item" title="${skill.name}">
-                            <div class="skill-icon">
-                                <i class="fas ${skill.icon}"></i>
-                            </div>
-                            <div class="skill-name">${skill.name}</div>
-                            <div class="proficiency-badge ${proficiencyClass}">
-                                ${skill.level}
-                            </div>
-                        </div>
-                    `;
-                    
-                    container.innerHTML += skillCard;
-                });
-            });
-
-            // Update Statistics
-            document.getElementById('total-skills').textContent = totalSkills;
-            document.getElementById('advanced-count').textContent = advancedCount;
-            document.getElementById('intermediate-count').textContent = intermediateCount;
-            document.getElementById('beginner-count').textContent = beginnerCount;
-        }
-
-        renderSkills();
-
-        // =============================
         // Theme Toggle (Dark / Light)
         // =============================
         const toggleBtn = document.getElementById("theme-toggle");
         const body = document.getElementById("body");
         const navbar = document.getElementById("navbar");
-        const aboutSection = document.getElementById("about");
+        const aboutText = document.getElementById("about-text");
+        const contactText = document.getElementById("contact-text");
 
         if (toggleBtn) {
             const icon = toggleBtn.querySelector("i");
             
             toggleBtn.addEventListener("click", () => {
+                // Body Theme
                 body.classList.toggle("bg-gray-900");
                 body.classList.toggle("text-white");
                 body.classList.toggle("bg-white");
                 body.classList.toggle("text-black");
 
+                // Navbar Theme
                 if(navbar){
                     navbar.classList.toggle("bg-gray-900");
                     navbar.classList.toggle("bg-white");
@@ -1109,18 +933,18 @@
                     navbar.classList.toggle("border-gray-300");
                 }
 
-                if(aboutSection){
-                    aboutSection.classList.toggle("bg-gray-800");
-                    aboutSection.classList.toggle("bg-gray-100");
+                // Text Colors
+                if(aboutText){
+                    aboutText.classList.toggle("text-gray-300");
+                    aboutText.classList.toggle("text-black");
                 }
 
-                const skillBoxes = document.querySelectorAll(".skill-item");
-                skillBoxes.forEach(box => {
-                    box.classList.toggle("bg-gray-800");
-                    box.classList.toggle("bg-gray-200");
-                    box.classList.toggle("text-black");
-                });
+                if(contactText){
+                    contactText.classList.toggle("text-gray-400");
+                    contactText.classList.toggle("text-black");
+                }
 
+                // Icon Change
                 if (body.classList.contains("bg-white")) {
                     icon.classList.remove("fa-moon");
                     icon.classList.add("fa-sun");
@@ -1152,18 +976,6 @@
         });
 
         // =============================
-        // Print Resume Function
-        // =============================
-        function printResume(){
-            const resumeWindow = window.open("resume tm.pdf");
-            if(resumeWindow){
-                resumeWindow.onload = function(){
-                    resumeWindow.print();
-                };
-            }
-        }
-
-        // =============================
         // Typed.js Animations
         // =============================
         var typed1 = new Typed("#typing-name", {
@@ -1175,9 +987,9 @@
         var typed2 = new Typed("#typing-role", {
             strings: [
                 "Full Stack Web Developer 💻",
-                "Building Scalable Solutions ⚡",
-                "Quality Code Advocate ✨",
-                "Client-Focused Developer 🎯"
+                "Freelance Developer 🚀",
+                "Problem Solver 🧠",
+                "Technology Enthusiast 💡"
             ],
             typeSpeed: 100,
             backSpeed: 90,
