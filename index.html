@@ -9,159 +9,245 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
         html {
-  scroll-behavior: smooth;
-}
-    .justify-text {
-    text-align: justify;
-  }
+            scroll-behavior: smooth;
+        }
+        .justify-text {
+            text-align: justify;
+        }
         .skill-card:hover { transform: translateY(-10px); transition: 0.3s; }
         .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
         .project-card:hover{
-                        transform: translateY(-10px);
-                        transition: 0.3s;
-                        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            transform: translateY(-10px);
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        
+        /* Hero Section Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-slide-in {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(75, 0, 130, 0.2) 100%);
         }
     </style>
 </head>
 <body id="body" class="bg-gray-900 text-white font-sans">
 
-   <nav id="navbar" class="p-5 flex justify-between items-center sticky top-0 bg-gray-900 z-50 border-b border-gray-800">
+    <nav id="navbar" class="p-5 flex justify-between items-center sticky top-0 bg-gray-900 z-50 border-b border-gray-800">
         <a href="#home">
-    <img src="logo.png" class="h-10">
-</a>
-       <ul class="flex space-x-6 items-center">
-    <li><a href="#about" class="hover:text-blue-400">About</a></li>
-    <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
-    <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
-    <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-
-    <button id="theme-toggle" class="ml-6 text-xl">
-        <i class="fas fa-moon"></i>
-    </button>
-</ul>
+            <img src="logo.png" class="h-10">
+        </a>
+        <ul class="flex space-x-6 items-center">
+            <li><a href="#about" class="hover:text-blue-400">About</a></li>
+            <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+            <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+            <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+            <button id="theme-toggle" class="ml-6 text-xl">
+                <i class="fas fa-moon"></i>
+            </button>
+        </ul>
     </nav>
 
-    <section id="home"
-class="h-screen flex flex-col justify-center items-center text-center px-4">
+    <!-- ENHANCED HERO SECTION -->
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden hero-gradient">
 
-<!-- Logo Image -->
-<img src="logo.png"
-class="w-[400px] mt-[10px]" alt="Logo">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 -z-10"></div>
 
-<h2 class="text-5xl md:text-7xl font-extrabold mb-1">
-<span id="typing-name" class="text-blue-500"></span>
-</h2>
+        <!-- Main Content Container -->
+        <div class="max-w-3xl z-10">
+            <!-- Logo - Smaller & Animated -->
+            <img src="logo.png" class="w-24 md:w-32 mx-auto mb-8 rounded-full animate-slide-in delay-1 hover:scale-110 transition duration-300" alt="Logo">
 
-<p class="text-xl text-gray-400 max-w-2xl">
-<span id="typing-role"></span>
-</p>
+            <!-- Name with Typing Animation -->
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-3 animate-slide-in delay-2">
+                <span id="typing-name" class="text-blue-500"></span>
+            </h1>
 
-<div class="mt-[20px] flex justify-center gap-4">
+            <!-- Professional Title/Tagline -->
+            <p class="text-xl md:text-2xl text-blue-400 font-semibold mb-2 animate-slide-in delay-2">
+                Freelance Full Stack Developer
+            </p>
 
-<a href="resume tm.pdf" download
-class="bg-gray-700 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
-<i class="fas fa-download"></i>
-Download Resume
-</a>
+            <!-- Description with Typing Effect -->
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6 animate-slide-in delay-3">
+                <span id="typing-role"></span>
+            </p>
 
-<button onclick="printResume()"
-class="bg-gray-700 hover:bg-green-500 text-white px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300">
-<i class="fas fa-print"></i>
-Print Resume
-</button>
+            <!-- Quick Stats for Freelancer Credibility -->
+            <div class="flex justify-center gap-4 md:gap-8 mb-10 text-sm md:text-base flex-wrap animate-slide-in delay-3">
+                <div class="text-center">
+                    <p class="text-2xl md:text-3xl font-bold text-blue-400">50+</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Projects Completed</p>
+                </div>
+                <div class="text-center border-l border-r border-gray-600 px-4 md:px-8">
+                    <p class="text-2xl md:text-3xl font-bold text-blue-400">4.9<span class="text-lg">★</span></p>
+                    <p class="text-gray-400 text-xs md:text-sm">Client Rating</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl md:text-3xl font-bold text-blue-400">30+</p>
+                    <p class="text-gray-400 text-xs md:text-sm">Happy Clients</p>
+                </div>
+            </div>
 
-</div>
+            <!-- CTA Buttons - Main Call to Action -->
+            <div class="mt-8 flex flex-col md:flex-row justify-center gap-4 flex-wrap animate-slide-in delay-4">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-handshake"></i>
+                    <span class="hidden sm:inline">Hire Me</span>
+                    <span class="sm:hidden">Hire</span>
+                </a>
 
-</section>
+                <a href="#projects" class="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="hidden sm:inline">View Projects</span>
+                    <span class="sm:hidden">Projects</span>
+                </a>
+
+                <a href="resume tm.pdf" download class="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-download"></i>
+                    <span class="hidden sm:inline">Download Resume</span>
+                    <span class="sm:hidden">Resume</span>
+                </a>
+            </div>
+
+            <!-- Quick Services Tags -->
+            <div class="mt-12 text-gray-400 text-sm animate-slide-in delay-5">
+                <p class="mb-3 font-semibold text-gray-300">Services I Offer:</p>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-3">
+                    <span class="bg-gray-800 hover:bg-blue-900 px-3 py-1 rounded-full transition duration-300 text-xs md:text-sm">Web Development</span>
+                    <span class="bg-gray-800 hover:bg-blue-900 px-3 py-1 rounded-full transition duration-300 text-xs md:text-sm">Mobile Apps</span>
+                    <span class="bg-gray-800 hover:bg-blue-900 px-3 py-1 rounded-full transition duration-300 text-xs md:text-sm">Database Design</span>
+                    <span class="bg-gray-800 hover:bg-blue-900 px-3 py-1 rounded-full transition duration-300 text-xs md:text-sm">UI/UX</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+
+    </section>
+
     <section id="about" class="py-20 px-8 bg-gray-800">
         <div class="max-w-4xl mx-auto">
             <h3 class="text-3xl font-bold mb-8 border-l-4 border-blue-500 pl-4">About Me</h3>
             <p id="about-text" class="text-gray-300 leading-relaxed text-lg text-justify">
-                I am a final-year MCA student with a strong passion for web development and cloud computing. I enjoy building responsive, scalable, and user-friendly web applications that solve real-world problems. Along with developing modern web solutions, I am deeply interested in cloud technologies and how applications can be deployed, managed, and scaled efficiently in the cloud.
+                I am a final-year MCA student with a strong passion for web development and cloud computing. I enjoy building responsive, scalable, and user-friendly web applications that solve real-world problems.
 
-                Throughout my academic journey, I have worked on various projects that strengthened my skills in front-end and back-end development, databases, and cloud fundamentals. I am a quick learner, problem solver, and always eager to explore new technologies. My goal is to start my career in a growth-oriented organization where I can apply my knowledge of web development and cloud computing while continuously improving my technical expertise.
-                 </p>
+                Throughout my academic journey, I have worked on various projects that strengthened my skills in front-end and back-end development, databases, and cloud fundamentals. I am a quick learner and always eager to explore new technologies and best practices.
+            </p>
         </div>
     </section>
 
     <section id="skills" class="py-20 px-8">
         <h3 class="text-3xl font-bold text-center mb-12">My Tech Stack</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" id="skills-container">
-            </div>
+        </div>
     </section>
 
     <section id="projects" class="py-20 px-8 bg-gray-800">
-    <h3 class="text-3xl font-bold text-center mb-12">Featured Projects</h3>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" id="projects-container">
-    </div>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-12">Featured Projects</h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" id="projects-container">
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-<!-- Project 1 -->
-<a href="https://your-project-link.com" target="_blank"
-class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
+            <!-- Project 1 -->
+            <a href="https://your-project-link.com" target="_blank"
+                class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
 
-<h4 class="text-xl font-bold text-blue-400 mb-2">
-Banking Management System
-</h4>
+                <h4 class="text-xl font-bold text-blue-400 mb-2">
+                    Banking Management System
+                </h4>
 
-<p class="text-gray-400 mb-4">
-A full-stack system built using PHP & MySQL for managing transactions and accounts.
-</p>
+                <p class="text-gray-400 mb-4">
+                    A full-stack system built using PHP & MySQL for managing transactions and accounts.
+                </p>
 
-<span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
-PHP, MySQL, CSS
-</span>
+                <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                    PHP, MySQL, CSS
+                </span>
 
-</a>
-
-
-<!-- Project 2 -->
-<a href="https://github.com/sujeetvishwakarma83/student-management-system" target="_blank"
-class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
-
-<h4 class="text-xl font-bold text-blue-400 mb-2">
-Student Management System
-</h4>
-
-<p class="text-gray-400 mb-4">
-An automated platform to handle student records, admissions, and data management.
-</p>
-
-<span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
-PHP, MySQL
-</span>
-
-</a>
+            </a>
 
 
-<!-- Project 3 -->
-<a href="https://github.com/sujeetvishwakarma83/portfolio" target="_blank"
-class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
+            <!-- Project 2 -->
+            <a href="https://github.com/sujeetvishwakarma83/student-management-system" target="_blank"
+                class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
 
-<h4 class="text-xl font-bold text-blue-400 mb-2">
-Personal Portfolio
-</h4>
+                <h4 class="text-xl font-bold text-blue-400 mb-2">
+                    Student Management System
+                </h4>
 
-<p class="text-gray-400 mb-4">
-A responsive website showcasing my journey, skills, and projects.
-</p>
+                <p class="text-gray-400 mb-4">
+                    An automated platform to handle student records, admissions, and data management.
+                </p>
 
-<span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
-HTML, Tailwind, JS
-</span>
+                <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                    PHP, MySQL
+                </span>
 
-</a>
+            </a>
 
-</div>
+
+            <!-- Project 3 -->
+            <a href="https://github.com/sujeetvishwakarma83/portfolio" target="_blank"
+                class="project-card project-box bg-gray-900 border border-gray-700 p-6 rounded-lg hover:border-blue-500 transition block">
+
+                <h4 class="text-xl font-bold text-blue-400 mb-2">
+                    Personal Portfolio
+                </h4>
+
+                <p class="text-gray-400 mb-4">
+                    A responsive website showcasing my journey, skills, and projects.
+                </p>
+
+                <span class="text-xs font-mono bg-blue-900 text-blue-200 px-2 py-1 rounded">
+                    HTML, Tailwind, JS
+                </span>
+
+            </a>
+
+        </div>
     </section>
 
     <section id="contact" class="py-20 text-center">
         <h3 class="text-3xl font-bold mb-4">Let's Connect</h3>
-        <p id="contact-text" class="text-gray-400 mb-8">Currently looking for opportunities in Web Development.</p>
+        <p id="contact-text" class="text-gray-400 mb-8">Looking for a skilled developer? Let's discuss your project!</p>
         <div class="flex justify-center space-x-6 text-3xl">
-            <a href="https://github.com/sujeetvishwakarma83" class="text-blue-400 hover:text-white"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/sujeet-vishwakarma-a19b2323a" class="text-blue-600 hover:text-white"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:sujeet8528420907@gmail.com" class="text-red-500 hover:text-white"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/sujeetvishwakarma83" class="text-blue-400 hover:text-white transition duration-300"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sujeet-vishwakarma-a19b2323a" class="text-blue-600 hover:text-white transition duration-300"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:sujeet8528420907@gmail.com" class="text-red-500 hover:text-white transition duration-300"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
 
@@ -169,222 +255,218 @@ HTML, Tailwind, JS
         &copy; 2026 Sujeet Vishwakarma. Built with ❤️ and Code.
     </footer>
 
-<script>
-    // =============================
-// Always Open Website at Home Section
-// =============================
-window.onload = function () {
-    window.scrollTo(0, 0);
-};
+    <script>
+        // =============================
+        // Always Open Website at Home Section
+        // =============================
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
 
-// =============================
-// Skills Data
-// =============================
-const skills = [
-    { name: 'HTML/CSS', icon: 'fa-code' },
-    { name: 'JavaScript', icon: 'fa-js' },
-    { name: 'PHP', icon: 'fa-php' },
-    { name: 'MySQL', icon: 'fa-database' },
-    { name: 'Cloud Computing', icon: 'fa-cloud' },
-    { name: 'AI/ML Concepts', icon: 'fa-robot' },
-    { name: 'Discrete Maths', icon: 'fa-square-root-variable' },
-    { name: 'Windows 11', icon: 'fa-windows' }
-];
-
-
-// =============================
-// Load Skills Automatically
-// =============================
-const skillsContainer = document.getElementById('skills-container');
-
-if (skillsContainer) {
-
-    skills.forEach(skill => {
-
-        const skillCard = `
-        <div class="glass skill-box p-6 rounded-xl text-center skill-card bg-gray-800">
-            <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
-            <p class="font-semibold">${skill.name}</p>
-        </div>
-        `;
-
-        skillsContainer.innerHTML += skillCard;
-
-    });
-
-}
+        // =============================
+        // Skills Data
+        // =============================
+        const skills = [
+            { name: 'HTML/CSS', icon: 'fa-code' },
+            { name: 'JavaScript', icon: 'fa-js' },
+            { name: 'PHP', icon: 'fa-php' },
+            { name: 'MySQL', icon: 'fa-database' },
+            { name: 'Cloud Computing', icon: 'fa-cloud' },
+            { name: 'AI/ML Concepts', icon: 'fa-robot' },
+            { name: 'Discrete Maths', icon: 'fa-square-root-variable' },
+            { name: 'Windows 11', icon: 'fa-windows' }
+        ];
 
 
-// =============================
-// Theme Toggle (Dark / Light)
-// =============================
-const toggleBtn = document.getElementById("theme-toggle");
-const body = document.getElementById("body");
-const navbar = document.getElementById("navbar");
-const aboutSection = document.getElementById("about");
-const projectsSection = document.getElementById("projects");
-const aboutText = document.getElementById("about-text");
-const contactText = document.getElementById("contact-text");
+        // =============================
+        // Load Skills Automatically
+        // =============================
+        const skillsContainer = document.getElementById('skills-container');
 
-if (toggleBtn) {
+        if (skillsContainer) {
 
-const icon = toggleBtn.querySelector("i");
+            skills.forEach(skill => {
 
-toggleBtn.addEventListener("click", () => {
+                const skillCard = `
+                <div class="glass skill-box p-6 rounded-xl text-center skill-card bg-gray-800">
+                    <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
+                    <p class="font-semibold">${skill.name}</p>
+                </div>
+                `;
 
-    // Body Theme
-    body.classList.toggle("bg-gray-900");
-    body.classList.toggle("text-white");
-    body.classList.toggle("bg-white");
-    body.classList.toggle("text-black");
+                skillsContainer.innerHTML += skillCard;
 
-    // Navbar Theme
-    if(navbar){
-        navbar.classList.toggle("bg-gray-900");
-        navbar.classList.toggle("bg-white");
-        navbar.classList.toggle("border-gray-800");
-        navbar.classList.toggle("border-gray-300");
-    }
-
-    // About Section
-    if(aboutSection){
-        aboutSection.classList.toggle("bg-gray-800");
-        aboutSection.classList.toggle("bg-gray-100");
-    }
-
-    // Projects Section
-    if(projectsSection){
-        projectsSection.classList.toggle("bg-gray-800");
-        projectsSection.classList.toggle("bg-gray-100");
-    }
-
-    // About Text
-    if(aboutText){
-        aboutText.classList.toggle("text-gray-300");
-        aboutText.classList.toggle("text-black");
-    }
-
-    // Contact Text
-    if(contactText){
-        contactText.classList.toggle("text-gray-400");
-        contactText.classList.toggle("text-black");
-    }
-
-    // =============================
-    // Skill Box Theme Change
-    // =============================
-    const skillBoxes = document.querySelectorAll(".skill-box");
-
-    skillBoxes.forEach(box => {
-
-        box.classList.toggle("bg-gray-800"); // dark mode
-        box.classList.toggle("bg-gray-200"); // light mode
-        box.classList.toggle("text-black");
-
-    });
-    // Change project box color in light mode
-const projectBoxes = document.querySelectorAll(".project-box");
-
-projectBoxes.forEach(box => {
-
-    box.classList.toggle("bg-gray-900"); // dark mode
-    box.classList.toggle("bg-gray-200"); // light mode
-    box.classList.toggle("text-black");
-
-});
-
-    // Icon Change
-    if (body.classList.contains("bg-white")) {
-
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-
-    } else {
-
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-
-    }
-
-});
-
-}
-
-
-// =============================
-// Scroll Reveal Animation
-// =============================
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0px)";
+            });
 
         }
 
-    });
 
-});
+        // =============================
+        // Theme Toggle (Dark / Light)
+        // =============================
+        const toggleBtn = document.getElementById("theme-toggle");
+        const body = document.getElementById("body");
+        const navbar = document.getElementById("navbar");
+        const aboutSection = document.getElementById("about");
+        const projectsSection = document.getElementById("projects");
+        const aboutText = document.getElementById("about-text");
+        const contactText = document.getElementById("contact-text");
 
-sections.forEach(section => {
+        if (toggleBtn) {
 
-    section.style.opacity = "0";
-    section.style.transform = "translateY(40px)";
-    section.style.transition = "all 0.8s ease";
+            const icon = toggleBtn.querySelector("i");
 
-    observer.observe(section);
+            toggleBtn.addEventListener("click", () => {
 
-});
+                // Body Theme
+                body.classList.toggle("bg-gray-900");
+                body.classList.toggle("text-white");
+                body.classList.toggle("bg-white");
+                body.classList.toggle("text-black");
+
+                // Navbar Theme
+                if(navbar){
+                    navbar.classList.toggle("bg-gray-900");
+                    navbar.classList.toggle("bg-white");
+                    navbar.classList.toggle("border-gray-800");
+                    navbar.classList.toggle("border-gray-300");
+                }
+
+                // About Section
+                if(aboutSection){
+                    aboutSection.classList.toggle("bg-gray-800");
+                    aboutSection.classList.toggle("bg-gray-100");
+                }
+
+                // Projects Section
+                if(projectsSection){
+                    projectsSection.classList.toggle("bg-gray-800");
+                    projectsSection.classList.toggle("bg-gray-100");
+                }
+
+                // About Text
+                if(aboutText){
+                    aboutText.classList.toggle("text-gray-300");
+                    aboutText.classList.toggle("text-black");
+                }
+
+                // Contact Text
+                if(contactText){
+                    contactText.classList.toggle("text-gray-400");
+                    contactText.classList.toggle("text-black");
+                }
+
+                // =============================
+                // Skill Box Theme Change
+                // =============================
+                const skillBoxes = document.querySelectorAll(".skill-box");
+
+                skillBoxes.forEach(box => {
+
+                    box.classList.toggle("bg-gray-800"); // dark mode
+                    box.classList.toggle("bg-gray-200"); // light mode
+                    box.classList.toggle("text-black");
+
+                });
+                // Change project box color in light mode
+                const projectBoxes = document.querySelectorAll(".project-box");
+
+                projectBoxes.forEach(box => {
+
+                    box.classList.toggle("bg-gray-900"); // dark mode
+                    box.classList.toggle("bg-gray-200"); // light mode
+                    box.classList.toggle("text-black");
+
+                });
+
+                // Icon Change
+                if (body.classList.contains("bg-white")) {
+
+                    icon.classList.remove("fa-moon");
+                    icon.classList.add("fa-sun");
+
+                } else {
+
+                    icon.classList.remove("fa-sun");
+                    icon.classList.add("fa-moon");
+
+                }
+
+            });
+
+        }
 
 
-// =============================
-// Print Resume Function
-// =============================
-function printResume(){
+        // =============================
+        // Scroll Reveal Animation
+        // =============================
+        const sections = document.querySelectorAll("section");
 
-    const resumeWindow = window.open("resume tm.pdf");
+        const observer = new IntersectionObserver(entries => {
 
-    if(resumeWindow){
+            entries.forEach(entry => {
 
-        resumeWindow.onload = function(){
+                if(entry.isIntersecting){
 
-            resumeWindow.print();
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0px)";
 
-        };
+                }
 
-    }
+            });
 
-}
+        });
+
+        sections.forEach(section => {
+
+            section.style.opacity = "0";
+            section.style.transform = "translateY(40px)";
+            section.style.transition = "all 0.8s ease";
+
+            observer.observe(section);
+
+        });
+
+
+        // =============================
+        // Print Resume Function
+        // =============================
+        function printResume(){
+
+            const resumeWindow = window.open("resume tm.pdf");
+
+            if(resumeWindow){
+
+                resumeWindow.onload = function(){
+
+                    resumeWindow.print();
+
+                };
+
+            }
+
+        }
+
+        // =============================
+        // Typed.js Animations
+        // =============================
         var typed1 = new Typed("#typing-name", {
-        strings: ["Hi, I'm Sujeet Vishwakarma"],
-        typeSpeed: 120,
-        showCursor: false
+            strings: ["Hi, I'm Sujeet Vishwakarma"],
+            typeSpeed: 120,
+            showCursor: false
         });
         
         var typed2 = new Typed("#typing-role", {
-        strings: [
-        "MCA Student",
-        "Full Stack Web Developer",
-        "AI Enthusiast"
-        ],
-        typeSpeed: 100,
-        backSpeed: 90,
-        loop: true
+            strings: [
+                "MCA Student 📚",
+                "Full Stack Web Developer 💻",
+                "AI Enthusiast 🤖",
+                "Cloud Computing Expert ☁️"
+            ],
+            typeSpeed: 100,
+            backSpeed: 90,
+            loop: true
         });
-</script></body>
+    </script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
