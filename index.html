@@ -122,6 +122,152 @@
             border-left: 4px solid #3b82f6;
             padding-left: 1rem;
         }
+
+        /* ENHANCED SKILLS SECTION STYLES */
+        .skills-section {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 1) 0%, rgba(31, 41, 55, 1) 100%);
+        }
+
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        .category-icon {
+            font-size: 1.75rem;
+            color: #60a5fa;
+            min-width: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .skill-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border: 1.5px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #60a5fa;
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover .skill-icon {
+            transform: scale(1.2) rotateY(10deg);
+            color: #93c5fd;
+        }
+
+        .skill-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .proficiency-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .proficiency-advanced {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid #22c55e;
+        }
+
+        .proficiency-intermediate {
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            border: 1px solid #3b82f6;
+        }
+
+        .proficiency-beginner {
+            background: rgba(251, 146, 60, 0.2);
+            color: #fed7aa;
+            border: 1px solid #fb923c;
+        }
+
+        .skills-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 1rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body id="body" class="bg-gray-900 text-white font-sans">
@@ -358,9 +504,99 @@
         </div>
     </section>
 
-    <section id="skills" class="py-20 px-8">
-        <h3 class="text-3xl font-bold text-center mb-12">My Tech Stack</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto" id="skills-container">
+    <!-- ENHANCED SKILLS SECTION -->
+    <section id="skills" class="py-20 px-8 skills-section">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-6">My Tech Stack</h3>
+            <p class="text-gray-300 text-center mb-12 text-lg max-w-3xl mx-auto">
+                A comprehensive collection of technologies and tools I've mastered through real-world projects. Each skill represents years of hands-on experience and continuous learning.
+            </p>
+
+            <!-- Skills Statistics -->
+            <div class="skills-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="total-skills">0</div>
+                    <div class="stat-label">Total Skills</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="advanced-count">0</div>
+                    <div class="stat-label">Advanced Level</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="intermediate-count">0</div>
+                    <div class="stat-label">Intermediate Level</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="beginner-count">0</div>
+                    <div class="stat-label">Emerging Skills</div>
+                </div>
+            </div>
+
+            <!-- FRONTEND STACK -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="category-title">Frontend Development</div>
+                </div>
+                <div class="skill-card-container" id="frontend-skills"></div>
+            </div>
+
+            <!-- BACKEND STACK -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="category-title">Backend Development</div>
+                </div>
+                <div class="skill-card-container" id="backend-skills"></div>
+            </div>
+
+            <!-- DATABASE & DATA MANAGEMENT -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="category-title">Database & Data Management</div>
+                </div>
+                <div class="skill-card-container" id="database-skills"></div>
+            </div>
+
+            <!-- CLOUD & DEVOPS -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="category-title">Cloud & DevOps</div>
+                </div>
+                <div class="skill-card-container" id="cloud-skills"></div>
+            </div>
+
+            <!-- PAYMENT & INTEGRATIONS -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="category-title">Payment & Integrations</div>
+                </div>
+                <div class="skill-card-container" id="payment-skills"></div>
+            </div>
+
+            <!-- TOOLS & UTILITIES -->
+            <div class="skills-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="category-title">Tools & Utilities</div>
+                </div>
+                <div class="skill-card-container" id="tools-skills"></div>
+            </div>
         </div>
     </section>
 
@@ -452,42 +688,124 @@
         };
 
         // =============================
-        // Skills Data
+        // COMPREHENSIVE SKILLS DATA
         // =============================
-        const skills = [
-            { name: 'HTML/CSS', icon: 'fa-code' },
-            { name: 'JavaScript', icon: 'fa-js' },
-            { name: 'PHP', icon: 'fa-php' },
-            { name: 'MySQL', icon: 'fa-database' },
-            { name: 'Cloud Computing', icon: 'fa-cloud' },
-            { name: 'AI/ML Concepts', icon: 'fa-robot' },
-            { name: 'React', icon: 'fa-react' },
-            { name: 'Git & GitHub', icon: 'fa-code-branch' }
-        ];
-
+        const skillsData = {
+            frontend: [
+                { name: 'HTML5', icon: 'fa-html5', level: 'Advanced', color: '#e34c26' },
+                { name: 'CSS3', icon: 'fa-css3-alt', level: 'Advanced', color: '#563d7c' },
+                { name: 'JavaScript (ES6+)', icon: 'fa-js', level: 'Advanced', color: '#f7df1e' },
+                { name: 'React.js', icon: 'fa-react', level: 'Advanced', color: '#61dafb' },
+                { name: 'Tailwind CSS', icon: 'fa-wind', level: 'Advanced', color: '#06b6d4' },
+                { name: 'Redux', icon: 'fa-cube', level: 'Intermediate', color: '#764abc' },
+                { name: 'Axios', icon: 'fa-network-wired', level: 'Intermediate', color: '#5c4ee5' },
+                { name: 'Bootstrap', icon: 'fa-bootstrap', level: 'Intermediate', color: '#7952b3' },
+            ],
+            backend: [
+                { name: 'Node.js', icon: 'fa-node', level: 'Advanced', color: '#68a063' },
+                { name: 'Express.js', icon: 'fa-server', level: 'Advanced', color: '#000000' },
+                { name: 'REST APIs', icon: 'fa-code', level: 'Advanced', color: '#3b82f6' },
+                { name: 'JWT Auth', icon: 'fa-lock', level: 'Advanced', color: '#e74c3c' },
+                { name: 'OAuth 2.0', icon: 'fa-shield-alt', level: 'Intermediate', color: '#3b82f6' },
+                { name: 'PHP', icon: 'fa-php', level: 'Intermediate', color: '#777bb4' },
+                { name: 'Authentication', icon: 'fa-fingerprint', level: 'Advanced', color: '#f39c12' },
+                { name: 'Middleware', icon: 'fa-layer-group', level: 'Intermediate', color: '#9b59b6' },
+            ],
+            database: [
+                { name: 'MongoDB', icon: 'fa-leaf', level: 'Advanced', color: '#13aa52' },
+                { name: 'MySQL', icon: 'fa-database', level: 'Advanced', color: '#00758f' },
+                { name: 'Firebase', icon: 'fa-fire', level: 'Advanced', color: '#ffa726' },
+                { name: 'PostgreSQL', icon: 'fa-database', level: 'Intermediate', color: '#336791' },
+                { name: 'Firestore', icon: 'fa-cloud', level: 'Intermediate', color: '#ffa726' },
+                { name: 'Query Optimization', icon: 'fa-bolt', level: 'Advanced', color: '#f39c12' },
+                { name: 'Data Modeling', icon: 'fa-sitemap', level: 'Advanced', color: '#3498db' },
+                { name: 'Indexing', icon: 'fa-list', level: 'Intermediate', color: '#2ecc71' },
+            ],
+            cloud: [
+                { name: 'AWS EC2', icon: 'fa-server', level: 'Advanced', color: '#ff9900' },
+                { name: 'AWS S3', icon: 'fa-hdd', level: 'Advanced', color: '#ff9900' },
+                { name: 'AWS RDS', icon: 'fa-database', level: 'Advanced', color: '#ff9900' },
+                { name: 'AWS Lambda', icon: 'fa-zap', level: 'Intermediate', color: '#ff9900' },
+                { name: 'Firebase Hosting', icon: 'fa-cloud-upload-alt', level: 'Advanced', color: '#ffa726' },
+                { name: 'Docker', icon: 'fa-docker', level: 'Intermediate', color: '#2496ed' },
+                { name: 'Heroku', icon: 'fa-cloud', level: 'Intermediate', color: '#430098' },
+                { name: 'Git & GitHub', icon: 'fa-code-branch', level: 'Advanced', color: '#181717' },
+            ],
+            payment: [
+                { name: 'Stripe Integration', icon: 'fa-credit-card', level: 'Advanced', color: '#635bff' },
+                { name: 'Razorpay', icon: 'fa-rupee-sign', level: 'Advanced', color: '#02042b' },
+                { name: 'PayPal API', icon: 'fa-paypal', level: 'Intermediate', color: '#003087' },
+                { name: 'Payment Webhooks', icon: 'fa-webhook', level: 'Advanced', color: '#f39c12' },
+                { name: 'PCI Compliance', icon: 'fa-shield-alt', level: 'Intermediate', color: '#e74c3c' },
+                { name: 'Invoice Generation', icon: 'fa-file-invoice-dollar', level: 'Advanced', color: '#27ae60' },
+                { name: 'Payment Gateway', icon: 'fa-money-bill-wave', level: 'Advanced', color: '#3498db' },
+                { name: 'Encryption', icon: 'fa-lock', level: 'Intermediate', color: '#c0392b' },
+            ],
+            tools: [
+                { name: 'VS Code', icon: 'fa-code', level: 'Advanced', color: '#007acc' },
+                { name: 'Postman', icon: 'fa-satellite', level: 'Advanced', color: '#ff6c37' },
+                { name: 'Git/GitHub', icon: 'fa-github', level: 'Advanced', color: '#181717' },
+                { name: 'NPM/Yarn', icon: 'fa-box', level: 'Advanced', color: '#cb3837' },
+                { name: 'Figma', icon: 'fa-figma', level: 'Intermediate', color: '#f24e1e' },
+                { name: 'Webpack', icon: 'fa-cube', level: 'Intermediate', color: '#8dd6f9' },
+                { name: 'ESLint', icon: 'fa-check-double', level: 'Intermediate', color: '#4b32c3' },
+                { name: 'Jira', icon: 'fa-jira', level: 'Intermediate', color: '#0052cc' },
+            ]
+        };
 
         // =============================
-        // Load Skills Automatically
+        // Render Skills
         // =============================
-        const skillsContainer = document.getElementById('skills-container');
+        function renderSkills() {
+            const categories = {
+                frontend: document.getElementById('frontend-skills'),
+                backend: document.getElementById('backend-skills'),
+                database: document.getElementById('database-skills'),
+                cloud: document.getElementById('cloud-skills'),
+                payment: document.getElementById('payment-skills'),
+                tools: document.getElementById('tools-skills')
+            };
 
-        if (skillsContainer) {
+            let totalSkills = 0;
+            let advancedCount = 0;
+            let intermediateCount = 0;
+            let beginnerCount = 0;
 
-            skills.forEach(skill => {
+            Object.entries(skillsData).forEach(([category, skills]) => {
+                const container = categories[category];
+                
+                skills.forEach(skill => {
+                    totalSkills++;
+                    if (skill.level === 'Advanced') advancedCount++;
+                    if (skill.level === 'Intermediate') intermediateCount++;
+                    if (skill.level === 'Beginner') beginnerCount++;
 
-                const skillCard = `
-                <div class="glass skill-box p-6 rounded-xl text-center skill-card bg-gray-800">
-                    <i class="fas ${skill.icon} text-4xl text-blue-500 mb-3"></i>
-                    <p class="font-semibold">${skill.name}</p>
-                </div>
-                `;
-
-                skillsContainer.innerHTML += skillCard;
-
+                    const proficiencyClass = `proficiency-${skill.level.toLowerCase()}`;
+                    
+                    const skillCard = `
+                        <div class="skill-item" title="${skill.name}">
+                            <div class="skill-icon">
+                                <i class="fas ${skill.icon}"></i>
+                            </div>
+                            <div class="skill-name">${skill.name}</div>
+                            <div class="proficiency-badge ${proficiencyClass}">
+                                ${skill.level}
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.innerHTML += skillCard;
+                });
             });
 
+            // Update Statistics
+            document.getElementById('total-skills').textContent = totalSkills;
+            document.getElementById('advanced-count').textContent = advancedCount;
+            document.getElementById('intermediate-count').textContent = intermediateCount;
+            document.getElementById('beginner-count').textContent = beginnerCount;
         }
 
+        renderSkills();
 
         // =============================
         // Theme Toggle (Dark / Light)
@@ -497,22 +815,16 @@
         const navbar = document.getElementById("navbar");
         const aboutSection = document.getElementById("about");
         const projectsSection = document.getElementById("projects");
-        const aboutText = document.getElementById("about-text");
-        const contactText = document.getElementById("contact-text");
 
         if (toggleBtn) {
-
             const icon = toggleBtn.querySelector("i");
-
+            
             toggleBtn.addEventListener("click", () => {
-
-                // Body Theme
                 body.classList.toggle("bg-gray-900");
                 body.classList.toggle("text-white");
                 body.classList.toggle("bg-white");
                 body.classList.toggle("text-black");
 
-                // Navbar Theme
                 if(navbar){
                     navbar.classList.toggle("bg-gray-900");
                     navbar.classList.toggle("bg-white");
@@ -520,107 +832,70 @@
                     navbar.classList.toggle("border-gray-300");
                 }
 
-                // About Section
                 if(aboutSection){
                     aboutSection.classList.toggle("bg-gray-800");
                     aboutSection.classList.toggle("bg-gray-100");
                 }
 
-                // Projects Section
                 if(projectsSection){
                     projectsSection.classList.toggle("bg-gray-800");
                     projectsSection.classList.toggle("bg-gray-100");
                 }
 
-                // =============================
-                // Skill Box Theme Change
-                // =============================
-                const skillBoxes = document.querySelectorAll(".skill-box");
-
+                const skillBoxes = document.querySelectorAll(".skill-item");
                 skillBoxes.forEach(box => {
-
-                    box.classList.toggle("bg-gray-800"); // dark mode
-                    box.classList.toggle("bg-gray-200"); // light mode
+                    box.classList.toggle("bg-gray-800");
+                    box.classList.toggle("bg-gray-200");
                     box.classList.toggle("text-black");
-
                 });
-                // Change project box color in light mode
+
                 const projectBoxes = document.querySelectorAll(".project-box");
-
                 projectBoxes.forEach(box => {
-
-                    box.classList.toggle("bg-gray-900"); // dark mode
-                    box.classList.toggle("bg-gray-200"); // light mode
+                    box.classList.toggle("bg-gray-900");
+                    box.classList.toggle("bg-gray-200");
                     box.classList.toggle("text-black");
-
                 });
 
-                // Icon Change
                 if (body.classList.contains("bg-white")) {
-
                     icon.classList.remove("fa-moon");
                     icon.classList.add("fa-sun");
-
                 } else {
-
                     icon.classList.remove("fa-sun");
                     icon.classList.add("fa-moon");
-
                 }
-
             });
-
         }
-
 
         // =============================
         // Scroll Reveal Animation
         // =============================
         const sections = document.querySelectorAll("section");
-
         const observer = new IntersectionObserver(entries => {
-
             entries.forEach(entry => {
-
                 if(entry.isIntersecting){
-
                     entry.target.style.opacity = "1";
                     entry.target.style.transform = "translateY(0px)";
-
                 }
-
             });
-
         });
 
         sections.forEach(section => {
-
             section.style.opacity = "0";
             section.style.transform = "translateY(40px)";
             section.style.transition = "all 0.8s ease";
-
             observer.observe(section);
-
         });
-
 
         // =============================
         // Print Resume Function
         // =============================
         function printResume(){
-
             const resumeWindow = window.open("resume tm.pdf");
-
             if(resumeWindow){
-
                 resumeWindow.onload = function(){
-
                     resumeWindow.print();
-
                 };
-
             }
-
         }
 
         // =============================
